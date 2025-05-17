@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Sentiment Analysis - HR-Tech Innovation{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sentiment-analysis.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 class="slide-in">Employee Sentiment Analysis</h1>
+        <p class="fade-in">Analyze employee feedback to predict attrition risks and improve engagement.</p>
+    </div>
+</section>
+
+<section class="sentiment-analysis">
+    <div class="container">
+        <div class="analysis-container">
+            <div class="form-container bounce-in">
+                <h2>Input Employee Feedback</h2>
+                <form id="sentiment-analysis-form">
+                    <div class="form-group">
+                        <label for="feedback-type">Feedback Type</label>
+                        <select id="feedback-type" name="feedback_type">
+                            <option value="survey">Engagement Survey</option>
+                            <option value="exit">Exit Interview</option>
+                            <option value="oneonone">One-on-One Feedback</option>
+                            <option value="review">Performance Review Comment</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedback-text">Employee Feedback</label>
+                        <textarea id="feedback-text" name="feedback" rows="10" placeholder="Paste the employee feedback here..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary pulse">
+                            <i class="fas fa-chart-line"></i> Analyze Sentiment
+                        </button>
+                        <button type="reset" class="btn secondary">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="results-container fade-in">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Analyzing feedback...</p>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h2>Analysis Results</h2>
+
+                    <div class="result-summary">
+                        <div class="sentiment-score">
+                            <div class="score-gauge">
+                                <div id="gauge-needle"></div>
+                                <div class="gauge-labels">
+                                    <span>Negative</span>
+                                    <span>Neural</span>
+                                    <span>Positive</span>
+                                </div>
+                            </div>
+                            <p>Sentiment: <span id="sentiment-interpretation">N/A</span></p>
+                        </div>
+
+                        <div class="attrition-risk">
+                            <h3>Attrition Risk</h3>
+                            <div class="risk-indicator">
+                                <div id="risk-level" class="risk-level"></div>
+                            </div>
+                            <p id="risk-text">N/A</p>
+                        </div>
+                    </div>
+
+                    <div class="factors-section">
+                        <div class="factor-column">
+                            <h3>Key Concerns</h3>
+                            <ul id="concerns-list" class="factors-list concerns"></ul>
+                        </div>
+                        <div class="factor-column">
+                            <h3>Positive Factors</h3>
+                            <ul id="positives-list" class="factors-list positives"></ul>
+                        </div>
+                    </div>
+
+                    <div class="recommendations">
+                        <h3>Engagement Recommendations</h3>
+                        <p id="recommendations-text"></p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="#" id="download-results" class="btn secondary">
+                            <i class="fas fa-download"></i> Download Report
+                        </a>
+                        <a href="#" id="new-analysis" class="btn primary">
+                            <i class="fas fa-plus"></i> New Analysis
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/sentiment-analysis.js') }}"></script>
+{% endblock %}

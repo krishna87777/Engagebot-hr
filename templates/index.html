@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}HR-Tech Innovation - AI-Powered HR Solutions{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content bounce-in">
+            <h1>AI-Powered HR Solutions</h1>
+            <p>Revolutionize your HR processes with our AI-driven tools powered by Arli AI</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('resume_screening') }}" class="btn primary pulse">Resume Screening</a>
+                <a href="{{ url_for('sentiment_analysis') }}" class="btn secondary pulse">Employee Sentiment Analysis</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title slide-in">Our AI Solutions</h2>
+
+        <div class="feature-cards">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <h3>Resume Screening</h3>
+                <p>Automatically match candidate resumes to job descriptions using advanced AI algorithms.</p>
+                <ul>
+                    <li>Skills matching</li>
+                    <li>Experience verification</li>
+                    <li>Education qualification</li>
+                </ul>
+                <a href="{{ url_for('resume_screening') }}" class="feature-link">Try it now <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Sentiment Analysis</h3>
+                <p>Analyze employee feedback to identify satisfaction levels and predict attrition risks.</p>
+                <ul>
+                    <li>Sentiment scoring</li>
+                    <li>Attrition prediction</li>
+                    <li>Engagement recommendations</li>
+                </ul>
+                <a href="{{ url_for('sentiment_analysis') }}" class="feature-link">Try it now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="workflow">
+    <div class="container">
+        <h2 class="section-title slide-in">How It Works</h2>
+
+        <div class="workflow-steps">
+            <div class="workflow-step fade-in">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Upload Data</h3>
+                    <p>Upload resumes or employee feedback data to our secure platform.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step fade-in">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>AI Processing</h3>
+                    <p>Our AI engine powered by Arli AI analyzes the data using machine learning algorithms.</p>
+                </div>
+            </div>
+
+            <div class="workflow-step fade-in">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Get Results</h3>
+                    <p>Receive detailed insights and actionable recommendations within seconds.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

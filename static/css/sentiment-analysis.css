@@ -1,0 +1,411 @@
+/* Enhanced Sentiment Analysis Styles */
+.sentiment-analysis {
+    padding: 3rem 0;
+}
+
+.analysis-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-container,
+.results-container {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.form-container h2,
+.results-container h2 {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-actions .btn {
+    flex: 1;
+}
+
+/* Results Display */
+.result-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Sentiment Score Gauge - Enhanced */
+.sentiment-score {
+    text-align: center;
+    position: relative;
+}
+
+.score-gauge {
+    width: 200px;
+    height: 100px;
+    border-radius: 100px 100px 0 0;
+    margin: 0 auto 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
+
+/* Default gradient */
+.score-gauge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        var(--danger-color) 0deg 60deg,
+        #f8b26a 60deg 120deg,
+        var(--success-color) 120deg 180deg
+    );
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+}
+
+/* Gauge color variations */
+.score-gauge.gauge-negative::before {
+    background: conic-gradient(
+        var(--danger-color) 0deg 90deg,
+        #f8664a 90deg 180deg
+    );
+}
+
+.score-gauge.gauge-neutral::before {
+    background: conic-gradient(
+        #f8a04a 0deg 60deg,
+        #f8b26a 60deg 120deg,
+        #f8c48a 120deg 180deg
+    );
+}
+
+.score-gauge.gauge-positive::before {
+    background: conic-gradient(
+        #71d875 0deg 90deg,
+        var(--success-color) 90deg 180deg
+    );
+}
+
+/* Animation effect for gauge */
+.score-gauge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center bottom, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+}
+
+#gauge-needle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 90px;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(90deg);
+    transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Needle cap */
+#gauge-needle::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+/* Enhanced sentiment text */
+#sentiment-interpretation {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    transition: color 0.5s ease;
+}
+
+/* Sentiment text colors */
+.text-very-negative { color: #ff4136; }
+.text-negative { color: #ff725c; }
+.text-neutral { color: #ffb700; }
+.text-positive { color: #19b38d; }
+.text-very-positive { color: #00bf8f; }
+
+/* Attrition Risk - Enhanced */
+.attrition-risk {
+    text-align: center;
+}
+
+.risk-indicator {
+    width: 200px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    margin: 1rem auto;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.risk-level {
+    height: 100%;
+    width: 0;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1), background-color 1s ease;
+}
+
+#risk-text {
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-top: 0.5rem;
+    transition: color 0.5s ease;
+}
+
+.risk-low { color: var(--success-color); }
+.risk-medium { color: var(--warning-color); }
+.risk-high { color: var(--danger-color); }
+
+/* Improved Factors Section */
+.factors-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.factor-column {
+    background-color: #0b0b0b;
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.factor-column:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.factor-column h3 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.factors-list {
+    padding-left: 1.5rem;
+}
+
+.factors-list li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+}
+
+.factors-list.concerns li::before {
+    content: '!';
+    position: absolute;
+    left: -1.5rem;
+    color: var(--warning-color);
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(245, 158, 11, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.factors-list.concerns li:hover::before {
+    background-color: rgba(245, 158, 11, 0.25);
+    transform: scale(1.1);
+}
+
+.factors-list.positives li::before {
+    content: '+';
+    position: absolute;
+    left: -1.5rem;
+    color: var(--success-color);
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(16, 185, 129, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.factors-list.positives li:hover::before {
+    background-color: rgba(16, 185, 129, 0.25);
+    transform: scale(1.1);
+}
+
+/* Enhanced Recommendations */
+.recommendations {
+    background-color: #0b0b0b;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.recommendations:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recommendations h3 {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recommendations p {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons .btn {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Loading state for buttons */
+.button-loading {
+    position: relative;
+}
+
+.button-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.button-loading span {
+    visibility: hidden;
+}
+
+/* Placeholder text */
+.placeholder-text {
+    color: var(--light-text);
+    font-style: italic;
+}
+
+/* Loading animation */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: loadingSpin 1s ease-in-out infinite;
+}
+
+@keyframes loadingSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .analysis-container {
+        grid-template-columns: 1fr;
+    }
+
+    .result-summary {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .factors-section {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions,
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .score-gauge {
+        width: 180px;
+        height: 90px;
+    }
+
+    .risk-indicator {
+        width: 180px;
+    }
+}

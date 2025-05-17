@@ -1,0 +1,195 @@
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-in {
+    animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.8s ease forwards;
+}
+
+.slide-in-bottom {
+    animation: slideInFromBottom 0.8s ease forwards;
+}
+
+.bounce-in {
+    animation: bounceIn 1s ease forwards;
+}
+
+.pulse {
+    animation: pulse 2s ease infinite;
+}
+
+.float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.rotate {
+    animation: rotateCircle 10s linear infinite;
+}
+
+/* Staggered Animation Delays */
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+}
+
+.delay-5 {
+    animation-delay: 1s;
+}
+
+/* Animated Elements */
+.feature-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.workflow-step:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.workflow-step:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.workflow-step:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.nav-link:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.nav-link:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nav-link:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Reveal animations on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
